@@ -7,8 +7,22 @@
     <groupId>com.epam.aqa</groupId>
     <artifactId>bko-test-task</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
+        <!--TEST NG-->
+        <testng.version>6.14.3</testng.version>
         <!--WEB TEST-->
         <selenide.version>4.14.2</selenide.version>
         <!--API TEST-->
@@ -22,6 +36,13 @@
     </properties>
 
     <dependencies>
+        <!--TEST NG-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>$(testng.version)</version>
+            <scope>test</scope>
+        </dependency>
         <!--WEB TEST-->
         <dependency>
             <groupId>com.codeborne</groupId>
@@ -67,5 +88,6 @@
             <version>${slf4j-simple.version}</version>
         </dependency>
     </dependencies>
+
 
 </project>
