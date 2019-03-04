@@ -2,13 +2,13 @@
 Test task for DBO project
 
 # Description
-##UI test
+## UI test
 
 Autotest opens google page
 Performs search by word "Открытие" [SUCCESS]
 Checks, that number of found results more than 10000 [SUCCESS]
 
-##API test
+## API test
 
 Autotest makes request to https://api.github.com/users/defunkt
 Checks that login field is defunkt [SUCCESS]
@@ -23,13 +23,13 @@ Checks than company name is BankOpen [FAILURE]
 [Docker](https://www.docker.com/)
 
 # Autotests usage
-##Launch test
+## Launch test
 > mvn clean test 
 
-##Get autotests report
+## Get autotests report
 > mvn allure:report
 Report location is target\site\allure-maven-plugin\index.html
 
-##[NOT IMPLEMENTED]Launch autotest on docker server with internet access:
+## [NOT IMPLEMENTED]Launch autotest on docker server with internet access:
 ```docker-release.sh
 ```
