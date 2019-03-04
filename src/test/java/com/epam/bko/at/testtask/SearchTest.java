@@ -15,12 +15,12 @@ public class SearchTest {
         googlePage.openPage();
     }
 
-    @Test(description = "Make search by searchValue property")
+    @BeforeClass(description = "Make search by searchValue property", dependsOnMethods = "openPage")
     public void makeSearch() {
         googlePage.search(PropertiesReader.getProperty("searchValue"));
     }
 
-    @Test(description = "Check number of found items more than minNumberOfResults property", dependsOnMethods = "makeSearch")
+    @Test(description = "Check number of found items more than minNumberOfResults property")
     public void checkSearchResults() {
         Long searchResultsNumber = googlePage.getResultsNumber();
         Assert.assertTrue(searchResultsNumber > Long.parseLong(PropertiesReader.getProperty("minNumberOfResults")),
