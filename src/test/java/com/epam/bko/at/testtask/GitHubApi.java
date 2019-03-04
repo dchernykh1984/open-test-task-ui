@@ -20,14 +20,14 @@ public class GitHubApi {
         };
     }
 
-    @BeforeClass(description = "Make request to https://api.github.com/users/defunkt")
+    @BeforeClass(description = "Make request to API by APIendpoint property")
     public void makeRequest() {
-        response = when().get("https://api.github.com/users/defunkt").
-                then().statusCode(200);
+        response = when().get(PropertiesReader.getProperty("APIendpoint")).
+                then();
     }
 
-    @Test(description = "Check login contains property login", dataProvider = "parametersForValidation")
+    @Test(description = "Check response contains correct value", dataProvider = "parametersForValidation")
     public void checkLogin(String parameterName, String parameterValue) {
-        response.body(parameterName, equalTo(parameterValue));
+        response.statusCode(200).body(parameterName, equalTo(parameterValue));
     }
 }
