@@ -2,7 +2,6 @@
 Test task for DBO project
 
 # Description
-
 ##UI test
 
 Autotest opens google page
