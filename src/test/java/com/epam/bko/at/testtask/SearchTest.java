@@ -24,7 +24,8 @@ public class SearchTest {
     public void checkSearchResults() {
         Long searchResultsNumber = googlePage.getResultsNumber();
         Assert.assertTrue(searchResultsNumber > Long.parseLong(PropertiesReader.getProperty("minNumberOfResults")),
-                "Number of search results should be more, than 100000, actual value is " + searchResultsNumber
+                "Number of search results should be more, than " + PropertiesReader.getProperty("minNumberOfResults") +
+                        ", actual value is " + searchResultsNumber
         );
     }
 }
