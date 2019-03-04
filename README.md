@@ -12,17 +12,21 @@ Checks that login field is defunkt [SUCCESS]
 Checks than company name is BankOpen [FAILURE]
 
 # Tools used
-Java
-TestNG
-Selenide
-Docker
-Allure
-RestAssured
+[Java](https://java.com/ru/download/)
+[TestNG](https://testng.org/doc/index.html)
+[Selenide](https://ru.selenide.org/)
+[Allure](https://github.com/allure-framework/allure-java)
+[RestAssured](http://rest-assured.io/)
+[Docker](https://www.docker.com/)
 
-# Debug and launch test
-Launch autotests locally:
-```mvn test
-```
-[NOT IMPLEMENTED]Launch autotest on docker server with internet access:
+# Autotests usage
+##Launch test
+> mvn clean test 
+
+##Get autotests report
+> mvn allure:report
+Report location is target\site\allure-maven-plugin\index.html
+
+##[NOT IMPLEMENTED]Launch autotest on docker server with internet access:
 ```docker-release.sh
 ```
