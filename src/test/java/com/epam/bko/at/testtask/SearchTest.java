@@ -9,18 +9,18 @@ import org.testng.annotations.Test;
 public class SearchTest {
     GoogleSearchPage googlePage;
 
-    @BeforeClass
+    @BeforeClass(description = "Open default google search page by googleUrl property")
     public void openPage() {
-        googlePage = new GoogleSearchPage();
+        googlePage = new GoogleSearchPage(PropertiesReader.getProperty("googleUrl"));
         googlePage.openPage();
     }
 
-    @Test
+    @Test(description = "Make search by searchValue property")
     public void makeSearch() {
         googlePage.search(PropertiesReader.getProperty("searchValue"));
     }
 
-    @Test(dependsOnMethods = "makeSearch")
+    @Test(description = "Check number of found items more than minNumberOfResults property", dependsOnMethods = "makeSearch")
     public void checkSearchResults() {
         Long searchResultsNumber = googlePage.getResultsNumber();
         Assert.assertTrue(searchResultsNumber > Long.parseLong(PropertiesReader.getProperty("minNumberOfResults")),
