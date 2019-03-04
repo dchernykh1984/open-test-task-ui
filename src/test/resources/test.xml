@@ -1,10 +1,9 @@
-<suite name="Test Suite" verbose="1" >
-    <test name="Google search" >
+<suite name="Test Suite" verbose="1">
+    <test name="Google search">
         <classes>
-            <class name="com.epam.bko.at.testtask.SearchTest" />
+            <class name="com.epam.bko.at.testtask.SearchTest"/>
         </classes>
     </test>
-
     <test name="Github api">
         <classes>
             <class name="com.epam.bko.at.testtask.GitHubApi"/>
