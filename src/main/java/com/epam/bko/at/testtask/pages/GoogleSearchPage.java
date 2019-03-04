@@ -21,23 +21,24 @@ public class GoogleSearchPage {
     private String pageAddress;
 
     public GoogleSearchPage() {
-        pageAddress = PropertiesReader.getProperty("googleUrl");
+        pageAddress = "https://www.google.com/";
     }
 
-    public void openPage(String url) {
+    public GoogleSearchPage(String url) {
         pageAddress = url;
-        log.debug("Open page:" + pageAddress);
-        Selenide.open(url);
     }
 
     public void openPage() {
-        openPage(pageAddress);
+        log.debug("Open page:" + pageAddress);
+        Selenide.open(pageAddress);
+
     }
 
     public GoogleSearchPage search(String query) {
         $(By.name("q")).setValue(query).pressEnter();
         return page(GoogleSearchPage.class);
     }
+
     public Long getResultsNumber() {
         String searchStatus = $(By.xpath("//*[@id='resultStats']")).getText();
         log.debug("Search status result:" + searchStatus);
